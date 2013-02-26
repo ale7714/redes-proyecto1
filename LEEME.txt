@@ -1,0 +1,54 @@
+-----------------------------------------------------------------------------------------------------
+Grupo # 2:
+    - Alexandra Paredes # 05-38680.
+    - Javier Rodríguez # 05-38838.
+-----------------------------------------------------------------------------------------------------
+Archivos que componen el proyecto2.tar.gz:
+
+    -bomba.c.
+        El archivo bomba.c es el cliente, es decir, quien inicia las solicitudes o peticiones de gasolina, cuando la operación (capacidad Maxima - inventario) da como resultado mayor o igual a 38000 litros. Este archivo consta de varias operaciones: verificarargs (verifica los argumentos de entrada, los flags sin importar su orden, es decir, que sean validos),inicializarbomba (función que inicializa los atributos de la bomba), crearListaCentros (función que crea la lista de los centros de distribución), tanqueVacio (Verifica que el tanque este vacio o no) y otras funciones auxiliares que consideramos importante, además de su respectivo main. Para más información puede revisar el archivo bomba.c, donde están todas las funciones debidamente comentadas. 
+    -bomba.h
+        El archivo bomba.h contiene todos las firmas de las funciones declaradas en bomba.c. Además de esto, contiene la firma de la estructura bomba. Para más información, puede revisar el archivo bomba.h. 
+    -centro.c
+        El archivo centro.c es el servidor, es decir, es quien recibe las solicitudes de gasolina y posteriormente envía una respuesta confirmando o denegando la solicitud. Este archivo consta de varias operaciones, muchas similares al archivo bomba.c: verificarargs(verifica los argumentos de entrada, los flags sin importar su orden, es decir, que sean validos), inicializarcentro (funcion que inicializa los atributos del centro), y otras funciones auxiliares que consideramos importantes, además de su respectivo main. Para más información, revisar el archivo centro.c, donde están todas las funciones debidamente comentadas. 
+    -centro.h
+        El archivo centro.h contiene todos las firmas de las funciones declaradas en centro.c. Además de esto, contiene la firma de la estructura centro. Para más información, puede revisar el archivo centro.h.
+    -encomun.c
+        El archivo encomun.c contiene todas las funciones que usan, tanto en el servidor como en el cliente. Para más información, puede revisar el archivo encomun.c
+    -encomun.h
+        El archivo encomun.h contiene todos las firmas de las funciones declaradas en encomun.c. Para más información, puede revisar el archivo encomun.h
+    -listaservidor.c
+        Listaservidor es una estructura donde se almacenan todos los centros de distribución. Este archivo contiene funciones para manipular la estructura, como por ejemplo, ordenar todos los centros de distribución.Para más información, puede revisar el archivo listaservidor.c
+    -listaservidor.h
+        El listaservidor.h contiene todos las firmas de las funciones declaradas en listaservidor.c. Para más información, puede revisar el archivo listaservidor.h.
+    -socketcliente.c
+        Contiene la implementacion del socket protocolo TCP del lado del cliente. Consta de varias operaciones: crearConexion, leerSocket, escribirSocket.
+    -socketcliente.h
+        El archivo socketciente.h contiene todos las firmas de las funciones declaradas en socketcliente.c. Para más información, puede revisar el archivo socketcliente.h
+    -socketservidor.c
+        Contiene la implementacion del socket protocolo TCP del lado del servidor. Consta de varias operaciones: abrirConexion, crearConexion, leerSocket, escribirSocket.
+    -socketservidor.h
+        El archivo socketservidor.h contiene todos las firmas de las funciones declaradas en socketservidor.c. Para más información, puede revisar el archivo socketservidor.h
+-----------------------------------------------------------------------------------------------------
+El programa hace:
+    - Lee los datos de entrada.
+    - Crea una estructura con los centros de distribución.
+    - Maneja el ciclo del tiempo de la bomba y del centro.
+-----------------------------------------------------------------------------------------------------    
+    
+El programa dispone de un makefile para ejecutarlo de esta manera:
+
+    make all
+    ./bomba -n nombreBomba -cp capacidadMaxima -i inventario -c consumo -fc FicheroCentros 
+    ./centro -n nombreCentro -cp capacidadMaxima -i inventario -t tiempo -s suministro -p puerto
+    NOTA: los parametros pueden venir en cualquier orden.
+-----------------------------------------------------------------------------------------------------
+Condiciones particulares:
+
+        - En caso de diferencias con el formato de entrada se muestra el mensaje de uso del programa.        
+        - Asumimos que el archivo donde vienen los centros, cada linea es como sigue: nombre, direccion, puerto. La ultima linea es linea en blanco y no hay lineas en blanco. 
+-----------------------------------------------------------------------------------------------------
+
+    El proyecto consideramos que es una aplicación distribuida de dos niveles del tipo cliente-servidor y como protocolo de comunicación utilizamos el protocolo TCP, esto por requisito explícito en el enunciado del proyecto. Durante una comunicación usando el protocolo TCP, las dos máquinas deben establecer una conexión. La máquina que solicita la conexión (Bomba) se llama cliente, y la máquina receptora se llama servidor (Centro). Por eso es que decimos que estamos en un entorno Cliente-Servidor. 
+
+        

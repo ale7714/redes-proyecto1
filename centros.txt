@@ -1,0 +1,3 @@
+centro1&m5-s222.ldc.usb.ve&18838 
+centro2&m4-s222.ldc.usb.ve&18839
+centro3&m7-s222.ldc.usb.ve&18840
